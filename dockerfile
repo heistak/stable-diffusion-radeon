@@ -12,7 +12,7 @@ RUN git clone https://github.com/CompVis/stable-diffusion.git /root/stable-diffu
 COPY environment2.yaml /root/stable-diffusion/
 
 WORKDIR /root/stable-diffusion/
-RUN conda env create -f /root/stable-diffusion/environment2.yaml && conda init bash && echo "cd /dockerx/rocm/stable-diffusion/ && conda activate ldm" >> /root/.bashrc
+RUN conda env create -f /root/stable-diffusion/environment2.yaml && conda init bash && echo "cd /dockerx/rocm/stable-diffusion/; conda activate ldm" >> /root/.bashrc
 
 # Since we just appended to .bashrc to activate the conda environment, 
 # you should be able to start generating right after logging into the container
