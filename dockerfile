@@ -4,9 +4,9 @@
 FROM rocm/pytorch:rocm5.2_ubuntu20.04_py3.7_pytorch_1.11.0_navi21
 
 # The actual work should be done on the shared /dockerx/rocm/stable-diffusion directory, 
-# but we need to clone the repo on the container side to setup the conda env (move it manually later)
+# but we need to clone the repo on the container side to setup the conda env (copy it manually later)
 # 実際の生成はローカルからマウントされた/dockerx/rocm/stable-diffusionディレクトリで行うが、
-# conda環境の初期セットアップのためにとりあえず先に別の場所にgit cloneしてしまう（後で手動で移動してください）
+# conda環境の初期セットアップのためにとりあえず先に別の場所にgit cloneしてしまう（後で手動でコピーしてください）
 
 RUN git clone https://github.com/CompVis/stable-diffusion.git /root/stable-diffusion
 COPY environment2.yaml /root/stable-diffusion/
